@@ -26,19 +26,21 @@
     >
       <div>
         {{ selectedScmType }}
-        <ul class="list-group">
-          <li
-            class="list-group-item"
+        <div class="row">
+          <div
+            class="col-sm-6 col-lg-3"
             v-for="item in createIntegrationList"
             :key="item.acmType"
           >
-            <b-button
-              variant="outline-primary"
-              @click="handleItemClick(item.acmType)"
-              >{{ item.name }}</b-button
-            >
-          </li>
-        </ul>
+            <div class="card">
+              <b-button
+                variant="outline-primary"
+                @click="handleItemClick(item.acmType)"
+                >{{ item.name }}</b-button
+              >
+            </div>
+          </div>
+        </div>
       </div>
     </b-modal>
   </div>
