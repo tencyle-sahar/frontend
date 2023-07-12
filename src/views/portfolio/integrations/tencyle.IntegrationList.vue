@@ -30,13 +30,15 @@
           <div
             class="col-sm-6 col-lg-3"
             v-for="item in createIntegrationList"
-            :key="item.acmType"
+            :key="item.value"
           >
             <div class="card">
               <b-button
                 variant="outline-primary"
-                @click="handleItemClick(item.acmType)"
-                >{{ item.name }}</b-button
+                @click="handleItemClick(item.value)"
+              >
+                <img :src="item.svg" class="card-img-top" />
+                {{ item.title }}</b-button
               >
             </div>
           </div>
@@ -47,6 +49,8 @@
 </template>
 <script lang="ts">
 import { baseUrl } from "../../../Tencyle/Api/const/baseUrl.ts";
+import integrationsGridColumns from "./common/const/integrationsGridColumns.ts";
+import integrationScmCards from "./common/const/integrationTypeCards.ts";
 
 export default {
   name: "IntegrationList",
@@ -55,29 +59,9 @@ export default {
     return {
       selectedScmType: "",
       integrations: [],
-      columns: [
-        {
-          title: "Name",
-          field: "readableName",
-        },
-        {
-          title: "Type",
-          field: "scmType",
-        },
-        {
-          label: "Api key",
-          field: "apiKey",
-          formatter(value) {
-            return `${value.slice(0, 5)}...XXXXXXXXXX...${value.slice(-5)}`;
-          },
-        },
-      ],
+      columns: integrationsGridColumns,
       options: {},
-      createIntegrationList: [
-        { acmType: "gitlab", name: "GitLab" },
-        { acmType: "github", name: "GitHub" },
-        { acmType: "ecr", name: "ECR" },
-      ],
+      createIntegrationList: integrationScmCards,
     };
   },
   created() {
