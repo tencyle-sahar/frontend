@@ -3,9 +3,15 @@ module.exports = {
   env: {
     node: true
   },
-  'extends': [
+  extends: [
     'plugin:vue/essential',
-    'eslint:recommended'
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:eslint-plugin-vue/strongly-recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: [
+    '@typescript-eslint',
   ],
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
