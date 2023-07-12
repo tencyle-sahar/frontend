@@ -20,6 +20,20 @@ module.exports = {
         context: '../',
         outputLocation: '../'
       })
-    ]
-  }
+    ],
+    // extensions: [".ts", ".tsx", ".js"],
+    // module: {
+    //   rules: [
+    //     { test: /\.ts$/, loader: "ts-loader" },
+    //     {
+    //       test: /\.svg$/,
+    //       use: [
+    //         'babel-loader',
+    //         'vue-svg-loader',
+    //       ],
+    //     },
+    //   ],
+    // },
+  },
+
 };
